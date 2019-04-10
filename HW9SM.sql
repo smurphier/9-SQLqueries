@@ -88,7 +88,13 @@ ORDER BY c.last_name;
 
 -- 7a. Use subqueries to display titles of movies starting w `K` & `Q` whose language is English.
 SELECT title FROM film 
-WHERE (title LIKE '[kq]%' AND original_languag_id = 'English');
+WHERE title LIKE 'k%' OR title LIKE 'q%' AND language_id = 'English';
+
+/* these don't work....
+WHERE title IN ('q%','k%');
+WHERE title LIKE '[kq]%' AND language_id = 'English';
+WHERE title LIKE '^[kq]';
+WHERE title LIKE '^q';*/
 
 -- 7b. Use subqueries to display all actors who appear in the film `Alone Trip`.
 SELECT first_name, last_name FROM actor 
